@@ -9,25 +9,17 @@ const ItemListContainer = ({greetings}) => {
     alert(`Se agregó ${cantidad} a su carrito de compras`)
   }
   //consumo de API/Promise
-
   const [productos, setProductos] = useState([])
-
-  const arrayDeProductos = [
-    {id: 1, title: "Mago", price: "$15",description: "Un gato mago", pictureUrl: "../../imagenes/mago.jpg"},
-    {id: 2, title: "Guerrero", price: "$20",description: "Un gato guerrero", pictureUrl: "../../imagenes/guerrero.jpg"},
-    {id: 3, title: "Arquero", price: "$25",description: "Un gato arquero", pictureUrl: "../../imagenes/arquero.jpg"}
-  ]
 
   useEffect(() => {
     (async () => {
-      const promesa = new Promise((res, reject) => {
-        setTimeout(res(arrayDeProductos), 2000)
-      })
+      const promesa = await fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA3794&limit=20")
       try{
-        const respuesta = await promesa
-        setProductos(respuesta)
-      }catch{
-        console.log(reject)
+        const respuesta = await promesa.json()
+        const { results } = respuesta
+        setProductos(results)
+      }catch(error){
+        console.log(error)
       };
     })();
   }, [])
@@ -36,7 +28,9 @@ const ItemListContainer = ({greetings}) => {
     <div>
       <h3>{greetings}</h3>
       <ItemCount stock={12} initial={1} onAdd={showAdd}/>
-      <ItemList prueba={productos}/>
+      <div className='row mx-5'>
+        <ItemList props={productos}/>
+      </div>
     </div>
   )
 }
