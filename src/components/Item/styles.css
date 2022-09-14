@@ -1,9 +1,5 @@
-.centrar{
-    object-fit: contain;
-}
-.capacidad:hover{
-    
-    border-color: rgba(10, 10, 10, 0.4);
+.seleccion:hover{
+    border-color: rgba(33, 112, 187, 0.616);
     transform: scale(1.025);
     transition: ease;
 }

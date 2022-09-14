@@ -1,33 +1,38 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import ItemCount from '../../components/ItemCount'
+import { useParams } from 'react-router-dom'
 import ItemList from '../../components/ItemList'
 
 const ItemListContainer = ({greetings}) => {
-  //boton contador
-  const showAdd = (cantidad) => {
-    alert(`Se agregó ${cantidad} a su carrito de compras`)
-  }
+  
   //consumo de API/Promise
   const [productos, setProductos] = useState([])
+  const {categoryId} = useParams()
+  console.log(categoryId);
 
   useEffect(() => {
     (async () => {
-      const promesa = await fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA3794&limit=20")
       try{
-        const respuesta = await promesa.json()
-        const { results } = respuesta
-        setProductos(results)
+        if(categoryId){
+          const pedido = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}&limit=20`)
+          const respuesta = await pedido.json()
+          const {results} = respuesta
+          setProductos(results)
+        }else{
+          const pedido = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=MLA3794&limit=20`)
+          const respuesta = await pedido.json()
+          const {results} = respuesta
+          setProductos(results)
+        }
       }catch(error){
         console.log(error)
       };
     })();
-  }, [])
+  }, [categoryId])
   
   return (
     <div>
       <h3>{greetings}</h3>
-      <ItemCount stock={12} initial={1} onAdd={showAdd}/>
       <div className='row mx-5'>
         <ItemList props={productos}/>
       </div>

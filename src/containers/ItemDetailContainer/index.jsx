@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import ItemDetail from '../../components/ItemDetail'
 
 const ItemDetailContainer = () => {
 
   const [oneItem, setOneItem] = useState({})
+  const [imagenes, setImagenes] = useState([])
+  const {productId} = useParams()
 
   useEffect(() => {
     const getItem = (async () =>{
-      const getOneItem = await fetch("https://api.mercadolibre.com/items?ids=MLA1107959293")
+      const getOneItem = await fetch(`https://api.mercadolibre.com/items/${productId}`)
       try {
         const response = await getOneItem.json()
-        const elemento = response.pop()
-        const { body: producto} = elemento
-        console.log(producto);
-        setOneItem(producto)
+        setOneItem(response)
+        const {pictures} = response
+        setImagenes(pictures)
       } catch (error) {
         console.log(error);
       }
     })
     getItem()
-  }, [])
+  }, [productId])
   
   return (
     <div className='row'>
-      <ItemDetail prop={oneItem} className="col-12"/>
+      <ItemDetail prop={oneItem} imgs={imagenes} className="col-12"/>
     </div>
   )
 }
