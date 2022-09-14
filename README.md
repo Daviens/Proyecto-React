@@ -9,12 +9,12 @@ This is my first project that i'm using React. It's an ecommerce and all the dat
 <h3 align="left">Contact me:</h3>
   <p align="left">
     <a href="https://instagram.com/ferflekenstein" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ferflekenstein" height="30" width="40" /></a>
-    <a href="https://www.linkedin.com/in/fernando-flekenstein/" target="blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" /></a>
+    <a href="https://www.linkedin.com/in/fernando-flekenstein/" target="blank"><i class="devicon-linkedin-plain"></i></a>
 </p>
  
 #Tools
 This section shows which language and libraries i'll be using:
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+<i class="devicon-react-original"></i><i class="devicon-javascript-plain"></i><i class="devicon-css3-plain"></i><i class="devicon-html5-plain"></i><i class="devicon-bootstrap-plain"></i><i class="devicon-git-plain"></i><i class="devicon-github-original"></i>
             
           
             
