@@ -1,11 +1,20 @@
 import React from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ItemCount from '../ItemCount'
 
 const ItemDetail = ({prop, imgs}) => {
 
-  //boton contador
+  const [cant, setCant] = useState(0)
+
+  const nav = useNavigate()
+
+  const goTo = () => {
+    nav('/cart')
+  }
+
   const showAdd = (cantidad) => {
-    alert(`Se agregó ${cantidad} a su carrito de compras`)
+    setCant(cantidad)
   }
   return (
     <div className='container row'>
@@ -29,7 +38,7 @@ const ItemDetail = ({prop, imgs}) => {
       <div className='col-md-7'>
         <h2>{prop.title}</h2>
         <h3>${prop.price}</h3>
-        <ItemCount stock={12} initial={1} onAdd={showAdd}/>
+        {!cant? <ItemCount stock={12} initial={1} onAdd={showAdd}/> : <button onClick={goTo} className="btn btn-outline-dark">Finalizar compra</button>}
       </div>
     </div>
   )

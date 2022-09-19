@@ -8,7 +8,6 @@ const ItemListContainer = ({greetings}) => {
   //consumo de API/Promise
   const [productos, setProductos] = useState([])
   const {categoryId} = useParams()
-  console.log(categoryId);
 
   useEffect(() => {
     (async () => {
