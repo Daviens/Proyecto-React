@@ -1,15 +1,18 @@
-import React from 'react'
-import { useState } from 'react'
+import React, {useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Shop } from '../../context/CartContext'
 import ItemCount from '../ItemCount'
 
-const ItemDetail = ({prop, imgs}) => {
 
+const ItemDetail = ({prop, imgs}) => {
   const [cant, setCant] = useState(0)
 
   const nav = useNavigate()
 
+  const {addItem} = useContext(Shop)
+
   const goTo = () => {
+    addItem(prop, cant)
     nav('/cart')
   }
 
