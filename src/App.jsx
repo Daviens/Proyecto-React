@@ -7,17 +7,17 @@ import CartContainer from "./containers/CartContainer";
 import ShopProvider from "./context/CartContext";
 
 function App() {
-  
+
   return (
     <ShopProvider>
       <BrowserRouter>
-        <NavBar/>
-        <Routes> 
-          <Route path="/" element={<ItemListContainer/>}/>
-          <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
-          <Route path="/detail/:productId" element={<ItemDetailContainer/>}/>
-          <Route path="/cart" element={<CartContainer/>}/>
-          <Route path="*" element={<NotFound/>}/>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path="/detail/:productId" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartContainer />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </ShopProvider>

@@ -1,15 +1,15 @@
-import React, {useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Shop } from '../../context/CartContext'
 import ItemCount from '../ItemCount'
 
 
-const ItemDetail = ({prop, imgs}) => {
+const ItemDetail = ({ prop, imgs }) => {
   const [cant, setCant] = useState(0)
 
   const nav = useNavigate()
 
-  const {addItem} = useContext(Shop)
+  const { addItem } = useContext(Shop)
 
   const goTo = () => {
     addItem(prop, cant)
@@ -25,8 +25,8 @@ const ItemDetail = ({prop, imgs}) => {
         <div className="carousel-inner">
           {imgs.map((elem) => {
             return <div key={elem.id} className="carousel-item active">
-                      <img src={elem.url} className="d-block w-100" alt="..."/>
-                    </div>
+              <img src={elem.url} className="d-block w-100" alt="..." />
+            </div>
           })}
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -41,7 +41,7 @@ const ItemDetail = ({prop, imgs}) => {
       <div className='col-md-7'>
         <h2>{prop.title}</h2>
         <h3>${prop.price}</h3>
-        {!cant? <ItemCount stock={12} initial={1} onAdd={showAdd}/> : <button onClick={goTo} className="btn btn-outline-dark">Finalizar compra</button>}
+        {!cant ? <ItemCount stock={12} initial={1} onAdd={showAdd} /> : <button onClick={goTo} className="btn btn-outline-dark">Finalizar compra</button>}
       </div>
     </div>
   )

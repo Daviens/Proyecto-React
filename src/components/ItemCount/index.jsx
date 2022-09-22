@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({stock, initial, onAdd}) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const [tracker, setTracker] = useState(initial)
   const resta = () => {
-    if(tracker > initial){
+    if (tracker > initial) {
       setTracker(tracker - 1)
-    }else{
+    } else {
       console.log("no se resta");
     }
   }
   const suma = () => {
-    if(tracker < stock){
+    if (tracker < stock) {
       setTracker(tracker + 1)
-    }else{
+    } else {
       console.log("no se suma");
     }
   }
