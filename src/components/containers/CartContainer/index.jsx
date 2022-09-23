@@ -3,14 +3,14 @@ import { Shop } from '../../../context/CartContext'
 import CartCard from '../../CartCard'
 
 const CartContainer = () => {
-  const {carrito, clearCart} = useContext(Shop)
+  const { carrito, clearCart } = useContext(Shop)
   return (
     <div>
       <div className='d-flex justify-content-end'>
-      <button onClick={clearCart} className="btn btn-outline-secondary">🗑</button>
+        <button onClick={clearCart} className="btn btn-outline-secondary">🗑</button>
       </div>
       <div>
-      {carrito.length ? carrito.map((producto) => <CartCard key={producto.id} prop={producto}/>) : <div>nada</div>}
+        {carrito.length ? carrito.map((producto) => <CartCard key={producto.id} prop={producto} />) : <div>nada</div>}
       </div>
     </div>
   )

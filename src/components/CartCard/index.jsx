@@ -2,9 +2,9 @@ import React from 'react'
 import { useContext } from 'react'
 import { Shop } from '../../context/CartContext'
 
-const CartCard = ({prop}) => {
+const CartCard = ({ prop }) => {
 
-    const {removeItem} = useContext(Shop)
+    const { removeItem } = useContext(Shop)
 
     const handleRemove = () => {
         removeItem(prop.id)
