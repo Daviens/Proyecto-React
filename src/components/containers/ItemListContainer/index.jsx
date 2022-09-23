@@ -5,7 +5,6 @@ import { db } from '../../../firebase/config'
 
 const ItemListContainer = ({ greetings }) => {
 
-  console.log(db);
   const [productos, setProductos] = useState([])
   const { categoryId } = useParams()
   useEffect(() => {

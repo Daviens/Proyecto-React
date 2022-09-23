@@ -13,17 +13,9 @@ const ShopProvider = ({ children }) => {
   }
 
   const removeItem = (itemId) => {
-    if (isInCart(itemId)) {
-      const carroCortado = carrito.map((producto) => {
-        if (producto.id === itemId) {
-          carroCortado.splice(indexOf(producto), 1)
-          return
-        }
-        return producto
-      })
-    } else {
-      console.log("no se puede eliminar este item ya que no existe");
-    }
+    const itemCortado = carrito.find((producto) => producto.id === itemId)
+    carrito.splice(carrito.indexOf(itemCortado), 1)
+    console.log(carrito);
   }
 
   const clearCart = () => {
