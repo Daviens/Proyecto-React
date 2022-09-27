@@ -1,8 +1,11 @@
 import React from 'react'
 import CartWidget from '../CartWidget'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { Shop } from '../../context/CartContext'
 
 const NavBar = () => {
+  const { carrito } = useContext(Shop)
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
       <div className="container-fluid">
@@ -12,7 +15,7 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0">
-            <CartWidget />
+            {carrito.length ? <CartWidget /> : <></>}
             <li className="nav-item">
               <Link className="nav-link" to="/category/MLA1694">Memorias Ram</Link>
             </li>

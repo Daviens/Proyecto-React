@@ -18,7 +18,9 @@ const CartCard = ({ prop }) => {
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
-                        <button onClick={handleRemove} className="btn btn-outline-danger">X</button>
+                        <div className='d-flex justify-content-end'>
+                            <button onClick={handleRemove} className="btn btn-outline-danger">X</button>
+                        </div>
                         <h4 className="card-title">{prop.title}</h4>
                         <h5 className="card-text">${prop.price}</h5>
                         <p className="card-text">Cantidad: {prop.cantidad}</p>

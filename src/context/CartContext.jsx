@@ -13,9 +13,8 @@ const ShopProvider = ({ children }) => {
   }
 
   const removeItem = (itemId) => {
-    const itemCortado = carrito.find((producto) => producto.id === itemId)
-    carrito.splice(carrito.indexOf(itemCortado), 1)
-    console.log(carrito);
+    const productosFiltrados = carrito.filter((producto) => producto.id !== itemId)
+    setCarrito(productosFiltrados)
   }
 
   const clearCart = () => {
