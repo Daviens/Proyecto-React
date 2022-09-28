@@ -23,7 +23,7 @@ const NavBar = () => {
               <Link className="nav-link" to="/category/MLA1693">Procesadores</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/category/MLA1695">Fuentes</Link>
+              <Link className="nav-link" to="/category/MLA1658">Placas de video</Link>
             </li>
           </ul>
           <form className="d-flex">

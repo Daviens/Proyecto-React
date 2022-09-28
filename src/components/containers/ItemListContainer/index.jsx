@@ -2,25 +2,26 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from '../../ItemList'
 import { db } from '../../../firebase/config'
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ItemListContainer = ({ greetings }) => {
 
   const [productos, setProductos] = useState([])
   const { categoryId } = useParams()
+
   useEffect(() => {
     (async () => {
       try {
-        if (categoryId) {
-          const pedido = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}&limit=20`)
-          const respuesta = await pedido.json()
-          const { results } = respuesta
-          setProductos(results)
-        } else {
-          const pedido = await fetch(`https://api.mercadolibre.com/sites/MLA/search?category=MLA3794&limit=20`)
-          const respuesta = await pedido.json()
-          const { results } = respuesta
-          setProductos(results)
-        }
+        const q = categoryId ?
+          query(collection(db, "products"), where("category_id", "==", categoryId))
+          :
+          query(collection(db, "products"));
+        const querySnapshot = await getDocs(q);
+        const productosFirebase = [];
+        querySnapshot.forEach((doc) => {
+          productosFirebase.push({ id: doc.id, ...doc.data() })
+        });
+        setProductos(productosFirebase)
       } catch (error) {
         console.log(error)
       };

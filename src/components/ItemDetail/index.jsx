@@ -24,7 +24,7 @@ const ItemDetail = ({ prop, imgs }) => {
       <div id="carouselExampleControls" className="carousel carousel-dark slide col-md-5" data-bs-ride="carousel">
         <div className="carousel-inner">
           {imgs.map((elem) => {
-            return <div key={elem.id} className="carousel-item active">
+            return <div key={imgs.indexOf(elem)} className="carousel-item active">
               <img src={elem.url} className="d-block w-100" alt="..." />
             </div>
           })}
