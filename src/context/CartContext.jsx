@@ -9,11 +9,11 @@ const ShopProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([])
 
   const isInCart = (id) => {
-    return carrito.some(producto => producto.id === id)
+    return carrito.some(producto => producto.id1 === id)
   }
 
   const removeItem = (itemId) => {
-    const productosFiltrados = carrito.filter((producto) => producto.id !== itemId)
+    const productosFiltrados = carrito.filter((producto) => producto.id1 !== itemId)
     setCarrito(productosFiltrados)
   }
 
@@ -22,9 +22,9 @@ const ShopProvider = ({ children }) => {
   }
 
   const addItem = (item, quantity) => {
-    if (isInCart(item.id)) {
+    if (isInCart(item.id1)) {
       const carroMapeado = carrito.map((producto) => {
-        if (producto.id === item.id) {
+        if (producto.id1 === item.id1) {
           producto.cantidad += quantity
           return producto
         }

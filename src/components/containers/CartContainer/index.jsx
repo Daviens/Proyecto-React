@@ -18,7 +18,7 @@ const CartContainer = () => {
       <div className='col-10 border rounded shadow p-3 bg-primary bg-opacity-50'>
         <div>
           {carrito.length ?
-            carrito.map((producto) => <CartCard key={producto.id} prop={producto} />)
+            carrito.map((producto) => <CartCard key={producto.id1} prop={producto} />)
             :
             <div className='text-center'>
               <h5>No tienes productos en tu carrito de compras</h5>

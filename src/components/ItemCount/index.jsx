@@ -12,8 +12,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const suma = () => {
     if (tracker < stock) {
       setTracker(tracker + 1)
-    } else {
-      console.log("no se suma");
     }
   }
   const addToCart = () => {

@@ -17,7 +17,7 @@ const Item = ({ objeto }) => {
           <div className="card-body">
             <h5 className="card-title">{objeto.title}</h5>
             <p className="card-text">${objeto.price}</p>
-            <p className="card-text"><small className="text-muted">Stock: {objeto.available_quantity}</small></p>
+            <p className="card-text"><small className="text-muted">Stock: {objeto.stock}</small></p>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import ItemCount from '../ItemCount'
 
 
 const ItemDetail = ({ prop, imgs }) => {
+
   const [cant, setCant] = useState(0)
 
   const nav = useNavigate()

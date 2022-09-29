@@ -6,7 +6,7 @@ import './styles.css'
 const CartWidget = () => {
   const { carrito } = useContext(Shop)
   const cantidades = carrito.map((producto) => producto.cantidad)
-  const canTotal = cantidades.reduce((a, b) => a + b)
+  const canTotal = cantidades.reduce((acc, cantidad) => acc + cantidad)
 
   return (
     <div className='carrito d-flex'>
