@@ -9,11 +9,11 @@ const ShopProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([])
 
   const isInCart = (id) => {
-    return carrito.some(producto => producto.id1 === id)
+    return carrito.some(producto => producto.id === id)
   }
 
   const removeItem = (itemId) => {
-    const productosFiltrados = carrito.filter((producto) => producto.id1 !== itemId)
+    const productosFiltrados = carrito.filter((producto) => producto.id !== itemId)
     setCarrito(productosFiltrados)
   }
 
@@ -22,9 +22,9 @@ const ShopProvider = ({ children }) => {
   }
 
   const addItem = (item, quantity) => {
-    if (isInCart(item.id1)) {
+    if (isInCart(item.id)) {
       const carroMapeado = carrito.map((producto) => {
-        if (producto.id1 === item.id1) {
+        if (producto.id === item.id) {
           producto.cantidad += quantity
           return producto
         }
@@ -38,8 +38,12 @@ const ShopProvider = ({ children }) => {
     }
   }
 
+  const total = () => {
+    return carrito.reduce((acc, elem) => acc += (elem.cantidad * elem.price), 0)
+  }
+
   return (
-    <Shop.Provider value={{ carrito, addItem, removeItem, clearCart }}>
+    <Shop.Provider value={{ carrito, addItem, removeItem, clearCart, total }}>
       {children}
     </Shop.Provider>
   )

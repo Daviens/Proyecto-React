@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
       const docSnap = await getDoc(docRef);
       try {
         if (docSnap.exists()) {
-          setOneItem(docSnap.data())
+          setOneItem({id: docSnap.id, ...docSnap.data()})
           const { pictures } = docSnap.data()
           setImagenes(pictures)
         } else {

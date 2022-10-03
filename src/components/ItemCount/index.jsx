@@ -6,7 +6,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     if (tracker > initial) {
       setTracker(tracker - 1)
     } else {
-      console.log("no se resta");
+      // avisar el error
     }
   }
   const suma = () => {

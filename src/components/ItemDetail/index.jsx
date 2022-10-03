@@ -42,7 +42,7 @@ const ItemDetail = ({ prop, imgs }) => {
       <div className='col-md-7'>
         <h2>{prop.title}</h2>
         <h3>${prop.price}</h3>
-        {!cant ? <ItemCount stock={12} initial={1} onAdd={showAdd} /> : <button onClick={goTo} className="btn btn-outline-dark">Finalizar compra</button>}
+        {!cant ? <ItemCount stock={prop.stock} initial={1} onAdd={showAdd} /> : <button onClick={goTo} className="btn btn-outline-dark">Finalizar compra</button>}
       </div>
     </div>
   )
