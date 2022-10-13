@@ -43,7 +43,7 @@ const ShopProvider = ({ children }) => {
   }
 
   return (
-    <Shop.Provider value={{ carrito, addItem, removeItem, clearCart, total }}>
+    <Shop.Provider value={{ carrito, addItem, removeItem, clearCart, total, setCarrito }}>
       {children}
     </Shop.Provider>
   )

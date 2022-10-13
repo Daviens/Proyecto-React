@@ -26,7 +26,7 @@ const ItemDetail = ({ prop, imgs }) => {
         <div className="carousel-inner">
           {imgs.map((elem) => {
             return <div key={imgs.indexOf(elem)} className="carousel-item active">
-              <img src={elem.url} className="d-block w-100" alt="..." />
+              <img src={elem.url} className="d-block w-100" style={{height: 400}} alt="..." />
             </div>
           })}
         </div>
