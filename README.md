@@ -8,7 +8,7 @@
 
 <h3>About Me</h3>
 <h1 align="center">Hi there 👋, I'm Fernando Flekenstein</h1>
-<h2 align="center">I'm currently studying blockchain tech and Solidity on my own, and at the same time I'm studying MERN stack at Coderhouse's bootcamp. </h2>
+<h2 align="center">I'm currently studying MERN stack at Coderhouse's bootcamp. </h2>
 
 <h3 align="left">Contact me:</h3>
 <p align="left">
