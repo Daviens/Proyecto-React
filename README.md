@@ -1,4 +1,4 @@
-<h1>Proyecto-React</h1>
+<h1>Evil-Compragamer</h1>
 <h3>Description</h3>
 <p>This is my first project that i'm using React. It's an ecommerce and all the data comes from MercadoLibre API. The goal of this project its only for practice pursuits.</p>
 
