@@ -1,4 +1,4 @@
-import AxiosClient from "./AxiosClient";
+import AxiosClient from "./axiosClient.js";
 export default class UserService {
   constructor() {
     this.client = new AxiosClient()
