@@ -4,7 +4,12 @@ export default class CartService{
         this.client = new AxiosClient()
     }
     getCart = () => {
-        const info = {url: `https://ecommapi-production-ce2e.up.railway.app/api/carrito`}
+        const info = {
+            url: `https://ecommapi-production-ce2e.up.railway.app/api/carrito`,
+            config: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        }
         return this.client.makeGetRequest(info)
     }
     sendProducts = (data) => {
@@ -14,7 +19,8 @@ export default class CartService{
             body: data,
             config: {
                 'withCredentials': 'true',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             }
         }
         return this.client.makePostRequest(info)
