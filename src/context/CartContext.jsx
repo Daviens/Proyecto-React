@@ -7,13 +7,14 @@ export const Shop = createContext()
 const ShopProvider = ({ children }) => {
 
   const [carrito, setCarrito] = useState([])
+  const [user, setUser] = useState(null)
 
   const isInCart = (id) => {
-    return carrito.some(producto => producto.id === id)
+    return carrito.some(producto => producto._id === id)
   }
 
   const removeItem = (itemId) => {
-    const productosFiltrados = carrito.filter((producto) => producto.id !== itemId)
+    const productosFiltrados = carrito.filter((producto) => producto._id !== itemId)
     setCarrito(productosFiltrados)
   }
 
@@ -22,9 +23,9 @@ const ShopProvider = ({ children }) => {
   }
 
   const addItem = (item, quantity) => {
-    if (isInCart(item.id)) {
+    if (isInCart(item._id)) {
       const carroMapeado = carrito.map((producto) => {
-        if (producto.id === item.id) {
+        if (producto._id === item._id) {
           producto.cantidad += quantity
           return producto
         }
@@ -43,7 +44,7 @@ const ShopProvider = ({ children }) => {
   }
 
   return (
-    <Shop.Provider value={{ carrito, addItem, removeItem, clearCart, total, setCarrito }}>
+    <Shop.Provider value={{ carrito, user, setUser, addItem, removeItem, clearCart, total, setCarrito }}>
       {children}
     </Shop.Provider>
   )

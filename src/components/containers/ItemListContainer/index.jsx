@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from '../../ItemList'
-import { db } from '../../../firebase/config'
-import { collection, query, where, getDocs } from "firebase/firestore";
+import ProductService from '../../../services/productSevice'
 
 const ItemListContainer = () => {
 
@@ -10,22 +9,17 @@ const ItemListContainer = () => {
   const { categoryId } = useParams()
 
   useEffect(() => {
-    (async () => {
-      try {
-        const q = categoryId ?
-          query(collection(db, "products"), where("category_id", "==", categoryId))
-          :
-          query(collection(db, "products"));
-        const querySnapshot = await getDocs(q);
-        const productosFirebase = [];
-        querySnapshot.forEach((doc) => {
-          productosFirebase.push({ id: doc.id, ...doc.data() })
-        });
-        setProductos(productosFirebase)
-      } catch (error) {
-        console.log(error)
-      };
-    })();
+    const fetchProds = async() => {
+      const prodService = new ProductService()
+      try{
+        const response = !categoryId ? await prodService.getProducts() : await prodService.getProductsbyCategory(categoryId)
+        setProductos(response.data)
+      } catch(error){
+        console.log(error);
+      }
+    }
+    fetchProds()
+
   }, [categoryId])
 
   return (

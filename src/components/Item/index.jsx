@@ -5,7 +5,7 @@ import './styles.css'
 const Item = ({ objeto }) => {
   const navegacion = useNavigate()
   const handleNav = () => {
-    navegacion(`/detail/${objeto.id}`)
+    navegacion(`/detail/${objeto._id}`)
   }
   return (
     <div className="card mb-3 shadow seleccion" onClick={handleNav}>

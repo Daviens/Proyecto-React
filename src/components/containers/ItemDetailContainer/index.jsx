@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import ItemDetail from '../../ItemDetail'
-import { doc, getDoc } from "firebase/firestore";
-import { db } from '../../../firebase/config';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import ProductService from '../../../services/productSevice';
 
 const ItemDetailContainer = () => {
 
@@ -13,16 +12,16 @@ const ItemDetailContainer = () => {
   const { productId } = useParams()
   const navegar = useNavigate()
   const MySwal = withReactContent(Swal)
+  const productService = new ProductService()
 
   useEffect(() => {
     const getItem = (async () => {
-      const docRef = doc(db, "products", `${productId}`);
-      const docSnap = await getDoc(docRef);
+      const query = await productService.getProductById(productId)
+      const item = query.data
       try {
-        if (docSnap.exists()) {
-          setOneItem({ id: docSnap.id, ...docSnap.data() })
-          const { pictures } = docSnap.data()
-          setImagenes(pictures)
+        if (item) {
+          setOneItem({ ...item })
+          setImagenes(item.thumbnail)
         } else {
           MySwal.fire({
             title: 'Error!',
@@ -42,7 +41,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div className='row'>
-      <ItemDetail prop={oneItem} imgs={imagenes} className="col-12" />
+      <ItemDetail product={oneItem} imgs={imagenes} className="col-12" />
     </div>
   )
 }

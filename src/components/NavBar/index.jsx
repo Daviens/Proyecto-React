@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { Shop } from '../../context/CartContext'
 
 const NavBar = () => {
-  const { carrito } = useContext(Shop)
+  const { carrito, user } = useContext(Shop)
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
       <div className="container-fluid">
@@ -16,17 +16,24 @@ const NavBar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0">
             {carrito.length ? <CartWidget /> : <></>}
+            {user? 
+              <li className="nav-item">
+                <Link className="nav-link" to="/admin">Admin</Link>
+              </li> 
+              : 
+              <></>
+            }
             <li className="nav-item">
-              <Link className="nav-link" to="/category/MLA1694">Memorias Ram</Link>
+              <Link className="nav-link" to="/category/Monitor">Monitores</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/category/MLA1693">Procesadores</Link>
+              <Link className="nav-link" to="/category/Procesador">Procesadores</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/category/MLA1658">Placas de video</Link>
+              <Link className="nav-link" to="/category/Placa de video">Placas de video</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/category/MLA1672">Almacenamiento</Link>
+              <Link className="nav-link" to="/category/Almacenamiento">Almacenamiento</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/cart">Carrito</Link>

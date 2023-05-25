@@ -3,11 +3,10 @@ import { useContext } from 'react'
 import { Shop } from '../../context/CartContext'
 
 const CartCard = ({ prop }) => {
-
     const { removeItem } = useContext(Shop)
 
     const handleRemove = () => {
-        removeItem(prop.id)
+        removeItem(prop._id)
     }
 
     return (
