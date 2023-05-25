@@ -1,10 +1,14 @@
-<h1>Proyecto-React</h1>
+<h1>Evil-Compragamer</h1>
 <h3>Description</h3>
 <p>This is my first project that i'm using React. It's an ecommerce and all the data comes from MercadoLibre API. The goal of this project its only for practice pursuits.</p>
 
+<h3>Libraries used</h3>
+<p>I've used <a>https://sweetalert2.github.io/#examples</a> by the style of the alerts and by practicity</p>
+<p>And also used <a>https://getbootstrap.com/</a> for the responsive design</p>
+
 <h3>About Me</h3>
 <h1 align="center">Hi there 👋, I'm Fernando Flekenstein</h1>
-<h2 align="center">I'm currently studying blockchain tech and Solidity on my own, and at the same time I'm studying MERN stack at Coderhouse's bootcamp. </h2>
+<h2 align="center">I'm currently studying MERN stack at Coderhouse's bootcamp. </h2>
 
 <h3 align="left">Contact me:</h3>
 <p align="left">
