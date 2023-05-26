@@ -20,7 +20,7 @@ export default class UserService {
       method: 'post',
       body: data,
       config: {
-        'withCredentials': 'true',
+        'withCredentials': 'include',
         'Content-Type': 'application/json'
       }
     }
@@ -30,7 +30,7 @@ export default class UserService {
     const info = {
       url: `https://ecommapi-production-ce2e.up.railway.app/api/sessions/islogin`,
       config:{
-        'withCredentials': 'true',
+        'withCredentials': 'include',
         'Content-Type': 'application/json'
       }
     }
