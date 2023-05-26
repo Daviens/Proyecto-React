@@ -3,9 +3,14 @@ import CartWidget from '../CartWidget'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { Shop } from '../../context/CartContext'
+import UserService from '../../services/userService'
 
 const NavBar = () => {
   const { carrito, user } = useContext(Shop)
+  const userService = new UserService()
+  const logout = async () => {
+    await userService.logout()
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
       <div className="container-fluid">
@@ -37,6 +42,9 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/cart">Carrito</Link>
+            </li>
+            <li className="nav-item">
+              <button onClick={logout} className='btn btn-primary'>Logout</button>
             </li>
           </ul>
         </div>

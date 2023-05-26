@@ -6,7 +6,7 @@ export default class UserService {
   register = (data) => {
     const info = {
       url: 'https://ecommapi-production-ce2e.up.railway.app/api/sessions/register',
-      method: 'post',
+      method: 'POST',
       body: data,
       config: {
         'Content-Type': 'multipart/form-data',
@@ -17,7 +17,7 @@ export default class UserService {
   login = (data) => {
     const info = {
       url: 'https://ecommapi-production-ce2e.up.railway.app/api/sessions',
-      method: 'post',
+      method: 'POST',
       body: data,
       config: {
         'withCredentials': 'include',
