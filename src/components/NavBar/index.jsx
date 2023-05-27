@@ -23,7 +23,7 @@ const NavBar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0">
             {carrito.length ? <CartWidget /> : <></>}
-            {user.role? 
+            {user? 
               <li className="nav-item">
                 <Link className="nav-link" to="/admin">Admin</Link>
               </li> 
