@@ -1,6 +1,6 @@
 import React from 'react'
 import CartWidget from '../CartWidget'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { Shop } from '../../context/CartContext'
 import UserService from '../../services/userService'
@@ -8,8 +8,10 @@ import UserService from '../../services/userService'
 const NavBar = () => {
   const { carrito, user } = useContext(Shop)
   const userService = new UserService()
+  const nav = useNavigate()
   const logout = async () => {
-    await userService.logout()
+    const response = await userService.logout()
+    if(response.data.status === "success") nav("/")
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
@@ -21,7 +23,7 @@ const NavBar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0">
             {carrito.length ? <CartWidget /> : <></>}
-            {user? 
+            {user.role? 
               <li className="nav-item">
                 <Link className="nav-link" to="/admin">Admin</Link>
               </li> 
