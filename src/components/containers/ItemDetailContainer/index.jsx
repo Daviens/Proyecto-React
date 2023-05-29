@@ -40,7 +40,10 @@ const ItemDetailContainer = () => {
   }, [productId])
 
   return (
-    <div className='row'>
+    <div className='row m-0' style={{
+      background: 'linear-gradient(to right, #667eea, #764ba2)',
+      minHeight: '100vh',
+    }}>
       <ItemDetail product={oneItem} imgs={imagenes} className="col-12" />
     </div>
   )

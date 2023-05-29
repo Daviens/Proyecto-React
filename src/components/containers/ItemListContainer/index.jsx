@@ -24,7 +24,10 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      <div className='row mx-5'>
+      <div className='row m-0 px-5' style={{
+        background: 'linear-gradient(to right, #667eea, #764ba2)',
+        minHeight: '100vh',
+      }}>
         <ItemList props={productos} />
       </div>
     </div>

@@ -38,7 +38,10 @@ const CartContainer = () => {
   }
 
   return (
-    <div className='row d-flex justify-content-center gap-3'>
+    <div className='row d-flex justify-content-center gap-3 m-0' style={{
+      background: 'linear-gradient(to right, #667eea, #764ba2)',
+      minHeight: '100vh',
+    }}>
       <div className='d-flex justify-content-end px-5'>
         <button onClick={clearCart} className="btn btn-outline-secondary">🗑</button>
       </div>
