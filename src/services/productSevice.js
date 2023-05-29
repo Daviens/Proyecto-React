@@ -22,7 +22,7 @@ export default class ProductService {
             method: 'POST',
             body: data,
             config: {
-                'withCredentials': 'include',
+                'withCredentials': 'true',
                 'Content-Type': 'multipart/form-data'
             }
         }
@@ -33,7 +33,7 @@ export default class ProductService {
             url: `https://ecommapi-production-ce2e.up.railway.app/api/productos/${id}`,
             body: data,
             config:{
-                'withCredentials': 'include',
+                'withCredentials': 'true',
                 'Content-Type': 'application/json'
             }
         }

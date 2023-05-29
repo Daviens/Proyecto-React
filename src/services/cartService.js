@@ -13,7 +13,7 @@ export default class CartService{
             method: "POST",
             body: data,
             config: {
-                'withCredentials': 'include',
+                'withCredentials': 'true',
                 'Content-Type': 'application/json',
             }
         }
