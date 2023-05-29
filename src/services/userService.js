@@ -30,7 +30,7 @@ export default class UserService {
     const info = {
       url: `https://ecommapi-production-ce2e.up.railway.app/api/sessions/islogin`,
       config:{
-        'withCredentials': 'include',
+        'withCredentials': 'true',
         'Content-Type': 'application/json'
       }
     }
