@@ -20,9 +20,25 @@ const LoginContainer = () => {
     existCookie()
   }, [])
   return (
-    <div>
-      <FormLogin/>
-      <FormRegister/>
+    <div
+      className="d-flex justify-content-around p-5 m-0"
+      style={{
+        background: 'linear-gradient(to right, #667eea, #764ba2)',
+        minHeight: '100vh',
+      }}
+    >
+      <div className="card border-primary border-opacity-50 rounded-top p-4 m-0">
+        <p className="card-title text-center">¡Ingresa!</p>
+        <div className="card-body">
+          <FormLogin />
+        </div>
+      </div>
+      <div className="card border-primary border-opacity-50 rounded-top p-4">
+        <p className="card-title text-center">¡Regístrate!</p>
+        <div className="card-body">
+          <FormRegister />
+        </div>
+      </div>
     </div>
   )
 }

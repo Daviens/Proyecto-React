@@ -14,7 +14,7 @@ const NavBar = () => {
     if(response.data.status === "success") nav("/")
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 mb-5 bg-body rounded">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow p-3 sticky-top bg-body rounded m-0">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">Evil Compragamer</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

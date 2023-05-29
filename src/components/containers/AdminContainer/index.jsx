@@ -9,6 +9,7 @@ const AdminContainer = () => {
     useEffect(() => {
       const getData = async () => {
         const info = await userService.getData()
+        console.log(info);
         info.data.message.role === "AUTHENTICATED"? true : nav("/")
       }
       getData()
